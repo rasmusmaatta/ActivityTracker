@@ -5,7 +5,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import java.time.LocalDateTime;
 
 @Entity
 public class Activity {
@@ -16,15 +15,15 @@ public class Activity {
     
     private String title;
     private String description;
-    private LocalDateTime activityDate;
-    private Long duration; // in minutes
+    private String activityDate;
+    private String duration; // in minutes
     
     @ManyToOne
     private Category category;
     
     public Activity() {}
     
-    public Activity(String title, String description, LocalDateTime activityDate, Long duration, Category category) {
+    public Activity(String title, String description, String activityDate, String duration, Category category) {
         this.title = title;
         this.description = description;
         this.activityDate = activityDate;
@@ -56,19 +55,19 @@ public class Activity {
         this.description = description;
     }
 
-    public LocalDateTime getActivityDate() {
+    public String getActivityDate() {
         return activityDate;
     }
 
-    public void setActivityDate(LocalDateTime activityDate) {
+    public void setActivityDate(String activityDate) {
         this.activityDate = activityDate;
     }
 
-    public Long getDuration() {
+    public String getDuration() {
         return duration;
     }
 
-    public void setDuration(Long duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
 

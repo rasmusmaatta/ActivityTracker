@@ -1,4 +1,4 @@
-package fi.haagahelia.wed;
+package fi.haagahelia.web;
 
 import fi.haagahelia.domain.Activity;
 import fi.haagahelia.domain.ActivityRepository;
@@ -34,7 +34,7 @@ public class ActivityTrackerController {
         return (List<Activity>) repository.findAll();
     }
     
-    @RequestMapping(value="/books/{id}", method=RequestMethod.GET)
+    @RequestMapping(value="/activities/{id}", method=RequestMethod.GET)
     public @ResponseBody Optional<Activity> findActivityRest(@PathVariable("id") Long ActivityId){
         return repository.findById(ActivityId);
     }
