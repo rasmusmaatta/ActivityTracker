@@ -37,7 +37,7 @@ public class ActivitytrackerApplication {
 			crepository.save(category2);
 			crepository.save(category3);
 
-			repository.save(new Activity("Running", "Morning jog", "2026-04-09", "30 mins", category1));
+			repository.save(new Activity("Running", "Morning jog", "2026-04-09", "30 mins", category2));
 			repository.save(new Activity("Cycling", "Evening bike ride", "2026-04-09", "45 mins", category2));
 			repository.save(new Activity("Yoga", "Morning stretching routine", "2026-04-09", "60 mins", category3));
 			repository.save(new Activity("Weightlifting", "Upper body workout", "2026-04-09", "50 mins", category1));

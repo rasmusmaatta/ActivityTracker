@@ -2,9 +2,6 @@ package fi.haagahelia.web;
 
 import fi.haagahelia.domain.Activity;
 import fi.haagahelia.domain.ActivityRepository;
-import fi.haagahelia.domain.Category;
-import fi.haagahelia.domain.CategoryRepository;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -22,11 +19,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ActivityTrackerController {
 
     private ActivityRepository repository;
-    private CategoryRepository crepository;
     
-    public ActivityTrackerController(ActivityRepository repository, CategoryRepository cRepository) {
+    public ActivityTrackerController(ActivityRepository repository) {
         this.repository = repository;
-        this.crepository = crepository;
     }
     
     @RequestMapping(value = "activities", method=RequestMethod.GET)
