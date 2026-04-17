@@ -16,9 +16,6 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/categories">Categories</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="/activities">Activities</a>
                     </li>
                 </ul>
@@ -31,56 +28,7 @@
             <div class="col-md-12">
                 <h1>Welcome to Activity Tracker</h1>
                 <p class="lead">Track your activities and organize them by category.</p>
-            </div>
-        </div>
-
-        <div class="row mt-4">
-            <div class="col-md-6">
-                <h2>Categories <a href="/categories/new" class="btn btn-sm btn-primary">+ New</a></h2>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="category : ${categories}">
-                            <td th:text="${category.name}"></td>
-                            <td th:text="${category.description}"></td>
-                            <td>
-                                <a th:href="@{/categories/{id}/edit(id=${category.id})}" class="btn btn-sm btn-warning">Edit</a>
-                                <a th:href="@{/categories/{id}/delete(id=${category.id})}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="col-md-6">
-                <h2>Recent Activities <a href="/activities/new" class="btn btn-sm btn-primary">+ New</a></h2>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Title</th>
-                            <th>Category</th>
-                            <th>Duration</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="activity : ${activities}">
-                            <td th:text="${activity.title}"></td>
-                            <td th:text="${activity.category.name}"></td>
-                            <td th:text="${activity.duration} + ' min'"></td>
-                            <td>
-                                <a th:href="@{/activities/{id}/edit(id=${activity.id})}" class="btn btn-sm btn-warning">Edit</a>
-                                <a th:href="@{/activities/{id}/delete(id=${activity.id})}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <a href="/activities" class="btn btn-lg btn-primary mt-3">Go to Activities</a>
             </div>
         </div>
     </div>

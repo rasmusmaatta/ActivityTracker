@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Add Activity</title>
+</head>
+
+<body>
+    <h1>Add Activity</h1>
+    <div>
+        <form th:object="${activity}" th:action="@{/save}" method="post">
+            <label for="title">Title</label>
+            <input type="text" th:field="*{title}" id="title" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+
+            <label for="description">Description</label>
+            <input type="text" th:field="*{description}" id="description" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+
+            <label for="activityDate">Activity Date</label>
+            <input type="date" th:field="*{activityDate}" id="activityDate" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+
+            <label for="duration">Duration (minutes)</label>
+            <input type="number" th:field="*{duration}" id="duration" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+
+            <label for="category">Category</label>
+            <select id="category" th:field="*{category}" class="form-control">
+                <option th:each="category: ${categories}" 
+                    th:value="${category.id}"
+                    th:text="${category.name}"></option>
+            </select>
+
+            <input type="submit" value="Save" />
+        </form>
+    </div>
+</body>
+
+</html>

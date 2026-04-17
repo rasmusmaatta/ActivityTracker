@@ -1,18 +1,37 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"></html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head>
         <title>Activity List</title>
     </head>
 
     <body>
-        <h1>Activities</h1>
+        <h1>Recent Activities</h1>
         <div>
-
+            <a href="/addactivity">Add New Activity</a>
         </div>
-        <table>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Duration (min)</th>
+                    <th>Category</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
             <tbody>
-                
+                <tr th:each="activity : ${activities}">
+                    <td th:text="${activity.title}">Title</td>
+                    <td th:text="${activity.description}">Description</td>
+                    <td th:text="${activity.activityDate}">Date</td>
+                    <td th:text="${activity.duration}">Duration</td>
+                    <td th:text="${activity.category != null ? activity.category.name : 'N/A'}">Category</td>
+                    <td>
+                        <a th:href="@{/editactivity/{id}(id=${activity.id})}">Edit</a> | 
+                        <a th:href="@{/deleteactivity/{id}(id=${activity.id})}">Delete</a>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </body>

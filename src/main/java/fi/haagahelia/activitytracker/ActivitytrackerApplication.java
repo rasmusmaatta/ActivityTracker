@@ -2,9 +2,11 @@ package fi.haagahelia.activitytracker;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.persistence.autoconfigure.EntityScan;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.slf4j.Logger;
 import fi.haagahelia.domain.Activity;
@@ -14,7 +16,10 @@ import fi.haagahelia.domain.AppUserRepository;
 import fi.haagahelia.domain.Category;
 import fi.haagahelia.domain.CategoryRepository;
 
-@SpringBootApplication
+
+@SpringBootApplication(scanBasePackages = "fi.haagahelia")
+@EntityScan(basePackages = "fi.haagahelia.domain")
+@EnableJpaRepositories(basePackages = "fi.haagahelia.domain")
 public class ActivitytrackerApplication {
 	private static final Logger log = LoggerFactory.getLogger(ActivitytrackerApplication.class);
 	
